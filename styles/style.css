@@ -1,0 +1,127 @@
+/* *{
+  margin: 0;
+}
+
+html{
+  background-color: #0B0B0E;
+  font-family: monospace;
+  color: aliceblue;
+}
+
+#hero {
+  height: 100vh;
+  background-image: url("../assets/images/background-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+} */
+
+/* base and variables */
+/* set up my design system tokens using css variables*/
+:root{
+  --bg:#0f1724;
+  --text:#e6eef8;
+  --muted:#9fb0cf;
+  --accent:#7c7cff;
+  --gap: 1rem;
+  --radius: 10px;
+  font-size: 16px;
+}
+/* */
+*,*::bbefore,*::after{
+  box-sizing: border-box;  /* content only (minus padding and margin) */
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: monospace, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* header */
+header{
+  display: flex;
+
+  align-items: center; 
+  justify-content: space-between; 
+  gap: var(--gap);
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* make the header sticky */
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+
+  /* border */
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+}
+
+/* brand */
+header h1{
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+}
+
+
+/* making the nav as horizontal list on wide screens */
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+}
+
+nav a{
+  padding: .4rem .6rem; /* This gives each link a clickable button-like area, making: */
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .95rem;
+  transition: 0.2s ease;
+}
+
+nav a:hover{
+  color: var(--text);
+  background:rgba(255,255,255,0.03); 
+}
+/* add current active page to the nav */
+
+
+
+/* focus visible for keyboard users only for links and buttons */
+a:focus-visible, button:focus-visible{
+  outline:3px solid rgba(124,92,255,0.18); 
+  outline-offset:2px; 
+}
+
+
+/* Small screens: stack brand + nav */
+/* media query for smaller screens */
+@media (max-width:640px){
+  header{ 
+    flex-direction:column; 
+    align-items:flex-start; 
+  }
+  nav ul{ 
+    flex-wrap:wrap; 
+    gap:.4rem;
+  }
+}
