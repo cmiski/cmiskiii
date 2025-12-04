@@ -29,7 +29,7 @@ html{
   font-size: 16px;
 }
 /* */
-*,*::bbefore,*::after{
+*,*::before,*::after{
   box-sizing: border-box;  /* content only (minus padding and margin) */
 }
 
@@ -66,9 +66,14 @@ header{
   position: sticky;
   top: 0;
   backdrop-filter: blur(10px);
+  /* for hero section to not overlap header */
+  z-index: 10;
 
   /* border */
   border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+
+  /* transition when header becomes sticky */
+  transition: backdrop-filter 0.3s ease, background 0.3s , padding 0.3s ease;
 }
 
 /* brand */
@@ -125,3 +130,44 @@ a:focus-visible, button:focus-visible{
     gap:.4rem;
   }
 }
+
+
+#hero{
+  position: relative;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/1200x/d1/4f/3a/d14f3aa59fca7de23868858b9bf5bdc4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: yellowgreen;
+}
+
+#hero h2, #hero p{
+  text-shadow: 0 0 6px rgba(0,0,0,0.8);
+}
+
+
+/* overlay for text on hero */
+#hero::before{
+  content:"";
+  position: absolute;
+  inset: 0; /* entire hero covered */
+  /* <-- darkness level */
+  /* background: rgba(0, 0, 0, 0.6);  */
+  background: rgba(20, 10, 40, 0.5);
+  backdrop-filter: brightness(0.8); /* optional */
+  z-index: 0;
+}
+/* bring your text above overlay */
+#hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+
