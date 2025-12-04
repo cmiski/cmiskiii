@@ -171,3 +171,10 @@ a:focus-visible, button:focus-visible{
 }
 
 
+.s{
+  padding: 20px;
+  background-color: rgba(3, 3, 3, 0);
+  /* text-align: center; */
+  /* color: rgba(255, 255, 255, 0.459);
+  text-shadow: 2px 2px 2px black; */
+}
