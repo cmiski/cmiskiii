@@ -41,6 +41,7 @@
         <div class="projects-grid">
           <article class="project">
             <a class="project-thumb" href="https://c-o-s-m-o.netlify.app/">
+              <!-- prevent CLS -> cumulative layout shift -->
               <img
                 src="../assets/images/projects/cosmo.png"
                 alt="cosmo webapp logo"
@@ -48,8 +49,9 @@
                 height="675"
                 loading="lazy"
               />
+              <!-- aspect ratio 16/9 -->
             </a>
-
+            <!-- what tf are webp and avif -->
             <div class="project-body">
               <h3>c-o-s-m-o</h3>
               <p class="kicker">
@@ -128,8 +130,8 @@
           height="100vh"
           width="100vw"
           alt="girl"
-          class="header-image-girl"
-          ;
+          class="footer-gif"
+          loading="lazy"
         />
       </div>
       <div class="footer-text">
